@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="images/logo-central-cafe.webp">
+<title>Central Café Rimouski — plus qu'un restaurant, au centre-ville de Rimouski</title>
+<meta name="description" content="Un incontournable à Rimouski pour son menu, son ambiance, son service et son décor. Pizzas fines, pâtes fraîches, burgers, terrasse chauffée et trois salles privées, au 31, rue de l'Évêché Ouest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Central Café",
+"address":{"@type":"PostalAddress","streetAddress":"31, rue de l'Évêché Ouest","addressLocality":"Rimouski","addressRegion":"QC","postalCode":"G5L 4H4","addressCountry":"CA"},
+"geo":{"@type":"GeoCoordinates","latitude":48.4479903,"longitude":-68.525087},"telephone":"+1-418-722-4011","servesCuisine":["Burgers","Pizza","Pâtes","Poutine"],"acceptsReservations":"True",
+"openingHoursSpecification":[
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"11:00","closes":"14:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"16:00","closes":"21:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday"],"opens":"11:00","closes":"14:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Thursday","Friday"],"opens":"16:00","closes":"22:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"16:00","closes":"22:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"16:00","closes":"20:00"}]}
+</script>
+<style>
+/*
+  Central Café — direction « La maison aux mille cabanes »
+  Couleurs prises sur place : vert d'eau des galeries, bleu et rouge de l'enseigne Boutique
+  peinte à la main, mur brique de la salle, bois des cadres, orangé du logo.
+*/
+:root{
+  --seafoam:#DCEAE2;   /* galeries peintes de la façade */
+  --teal:#3F7F71;      /* boiseries */
+  --cobalt:#1F2C66;    /* enseigne Boutique */
+  --cobalt-2:#18234F;
+  --red:#C3362A;       /* fleurs peintes */
+  --brick:#873528;     /* mur de la salle */
+  --wood:#B8773B;      /* cadres */
+  --ochre:#EFA93F;     /* orangé du logo */
+  --paper:#FBF8F1;
+  --sign:"Stardos Stencil","Rockwell","Georgia",serif;
+  --book:"Literata","Lora","Georgia",serif;
+  --max:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--seafoam);color:var(--cobalt);font:400 18px/1.7 var(--book);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--sign);font-weight:700;margin:0;line-height:.95;letter-spacing:.005em}
+h2{font-size:clamp(46px,6.2vw,86px)}
+p{margin:0 0 1em}
+figure{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cobalt);color:#fff;padding:8px 14px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.ph{position:relative;overflow:hidden;background:rgba(31,44,102,.08)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.noimg img{display:none}
+
+/* boutons */
+.call{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;text-decoration:none;font:600 17px/1 var(--book);padding:18px 24px;border-radius:3px;box-shadow:0 3px 0 #8E2219;transition:transform .12s,box-shadow .12s}
+.call:hover{transform:translateY(1px);box-shadow:0 2px 0 #8E2219}
+.call:active{transform:translateY(3px);box-shadow:none}
+.call svg{width:20px;height:20px;flex:none}
+.textlink{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--red)}
+.textlink:hover{color:var(--red)}
+
+/* en-tête + poutre */
+header.site{position:relative;z-index:20;background:var(--seafoam)}
+.nav{display:flex;align-items:center;gap:34px;height:96px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;margin-right:auto}
+.brand img{width:66px;height:66px;object-fit:contain}
+.brand span{font:700 26px/1 var(--sign)}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-size:16px;font-weight:500;padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{border-color:var(--red)}
+.nav-phone{font:700 22px/1 var(--sign);text-decoration:none;color:var(--red);white-space:nowrap}
+.menu-toggle{display:none;background:none;border:0;color:var(--cobalt);padding:8px;cursor:pointer}
+.beam{height:12px;background:var(--wood);border-top:2px solid #8C5426;border-bottom:2px solid #8C5426;position:relative;z-index:3}
+@media (max-width:1080px){
+  .nav-links{display:none;position:absolute;top:96px;left:0;right:0;flex-direction:column;gap:0;background:var(--seafoam);padding:4px 32px 18px;border-bottom:2px solid var(--cobalt);z-index:30}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:14px 0;border-bottom:1px solid rgba(31,44,102,.2);font-size:19px}
+  .menu-toggle{display:block}
+}
+@media (max-width:600px){.nav{gap:14px;height:80px}.brand img{width:52px;height:52px}.brand span{display:none}.nav-phone{font-size:18px}.nav-links{top:80px}}
+
+/* accueil */
+.hero{position:relative;padding:0 0 96px}
+.nichoirs{position:absolute;top:0;left:0;right:0;height:0;z-index:4;pointer-events:none}
+.nich{position:absolute;top:0;left:var(--x);transform-origin:50% 0;pointer-events:auto;cursor:grab}
+.nich i{display:block;width:2px;height:var(--len);margin:0 auto;background:var(--cobalt);opacity:.75}
+.nich svg{display:block;width:var(--w,64px);height:auto;margin-top:-2px;filter:drop-shadow(0 8px 6px rgba(31,44,102,.18))}
+.nich.swing{animation:swing var(--dur,2.6s) cubic-bezier(.3,.6,.4,1) both}
+@keyframes swing{0%{transform:rotate(var(--a,12deg))}22%{transform:rotate(calc(var(--a,12deg)*-.7))}44%{transform:rotate(calc(var(--a,12deg)*.45))}64%{transform:rotate(calc(var(--a,12deg)*-.25))}82%{transform:rotate(calc(var(--a,12deg)*.1))}100%{transform:rotate(0)}}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:end;padding-top:70px}
+.status{display:flex;align-items:center;gap:10px;font-size:16px;font-style:italic;margin-bottom:26px}
+.dot{width:10px;height:10px;border-radius:50%;background:#8b93b3;flex:none}
+.dot.open{background:#2F8A57}
+.dot.closed{background:var(--red)}
+.hero h1{font-size:clamp(58px,8.2vw,124px);line-height:.88}
+.hero h1 span{display:block}
+.hero .lede{font-size:21px;line-height:1.6;max-width:31em;margin:34px 0 36px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:22px 30px}
+.addr{margin-top:36px;font-size:16px;font-style:italic;opacity:.85}
+.facade{position:relative;margin-top:210px}
+.facade .ph{aspect-ratio:4/5;border:10px solid var(--paper);box-shadow:0 2px 0 rgba(31,44,102,.15)}
+.facade .ph img{object-position:38% 50%}
+.facade figcaption{font-size:14px;font-style:italic;margin-top:10px;opacity:.8}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding-top:220px}
+  .facade{margin-top:0}
+  .facade .ph{aspect-ratio:5/4}
+  .hide-sm{display:none}
+}
+
+/* spécialités */
+.specialites{background:var(--paper);padding:110px 0 120px;border-top:2px solid var(--cobalt);border-bottom:2px solid var(--cobalt)}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:60px}
+.intro p{margin:0;font-size:19px;max-width:30em}
+@media (max-width:860px){.intro,.menu .intro{grid-template-columns:1fr;gap:24px}}
+.plats{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+.plat{text-decoration:none;display:block}
+.plat .ph{aspect-ratio:1;background:var(--paper)}
+.plat .ph.cut img{object-fit:contain;transform:scale(1.12);mix-blend-mode:multiply}
+.plat .ph.photo{border:8px solid #fff;box-shadow:0 0 0 1px rgba(31,44,102,.15)}
+.plat h3{font-size:30px;margin:18px 0 8px}
+.plat p{font-size:16px;margin:0 0 12px}
+.plat .textlink{font-size:16px}
+.plat:hover h3{color:var(--red)}
+@media (max-width:960px){.plats{grid-template-columns:1fr 1fr;gap:40px 28px}}
+@media (max-width:520px){.plats{grid-template-columns:1fr}}
+
+/* menu */
+.menu{background:var(--cobalt);color:#F3F0E6;padding:120px 0}
+.menu .intro{grid-template-columns:1.1fr .9fr}
+.menu-photo{aspect-ratio:16/10;border:8px solid #F3F0E6}
+.menu-tools{display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin:10px 0 22px}
+.search{flex:1;min-width:250px;display:flex;flex-direction:column;gap:6px;font-size:15px;font-style:italic;opacity:.95}
+.search input{font:inherit;font-style:normal;font-size:19px;padding:10px 0;border:0;border-bottom:2px solid rgba(243,240,230,.5);background:transparent;color:#fff}
+.search input::placeholder{color:rgba(243,240,230,.55)}
+.search input:focus{outline:0;border-color:var(--ochre)}
+.pdf{color:var(--ochre)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:14px;margin:0 0 28px;opacity:.9}
+.legend .ic{margin:0 4px 0 0}
+.tabs{display:flex;gap:4px 24px;flex-wrap:wrap;padding:18px 0;margin-bottom:46px;border-top:2px solid rgba(243,240,230,.25);border-bottom:2px solid rgba(243,240,230,.25)}
+.tab{font:700 19px/1.2 var(--sign);background:none;border:0;color:rgba(243,240,230,.62);padding:4px 0;cursor:pointer;border-bottom:3px solid transparent}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{color:#fff;border-color:var(--ochre)}
+.mgroup{margin-bottom:64px}
+.mgroup-head{display:grid;grid-template-columns:auto 1fr;gap:12px 40px;align-items:end;margin-bottom:12px}
+.mgroup-head h3{font-size:clamp(36px,4vw,52px)}
+.mgroup-head h3 small{font:400 italic 16px var(--book);opacity:.75}
+.mgroup-head p{margin:0;font-size:15.5px;font-style:italic;opacity:.85;max-width:46em}
+@media (max-width:760px){.mgroup-head{grid-template-columns:1fr}}
+.items{display:grid;grid-template-columns:1fr 1fr;column-gap:72px;align-items:start}
+.item{display:grid;grid-template-columns:auto 1fr auto;padding:16px 0 15px;border-bottom:1px solid rgba(243,240,230,.18)}
+.item h4{margin:0;font:600 18px/1.35 var(--book);max-width:24em;min-width:0}
+.item .lead{border-bottom:2px dotted rgba(243,240,230,.35);margin:0 10px 7px;min-width:16px;align-self:end}
+.item .price{font:600 17px/1.35 var(--book);color:var(--ochre);text-align:right;white-space:nowrap;font-variant-numeric:lining-nums}
+.item .desc{grid-column:1/-1;font-size:15.5px;font-style:italic;opacity:.8;line-height:1.5;margin-top:3px}
+.star{color:var(--ochre);font-weight:700}
+.note-box{border:2px dashed rgba(243,240,230,.4);padding:20px 24px;font-size:16.5px;max-width:52em}
+.note-box b{font-family:var(--sign);font-size:22px;font-weight:700}
+.empty{font-style:italic;opacity:.8}
+.empty a,.mgroup a{color:var(--ochre)}
+mark{background:var(--ochre);color:var(--cobalt);padding:0 2px}
+table.sm{width:100%;border-collapse:collapse;font-size:17px;margin-top:6px}
+table.sm th,table.sm td{text-align:left;padding:14px 12px 14px 0;border-bottom:1px solid rgba(243,240,230,.18)}
+table.sm th{font-weight:400;font-style:italic;opacity:.8;font-size:15px}
+table.sm td.p{color:var(--ochre);font-weight:600;white-space:nowrap}
+@media (max-width:820px){.items{grid-template-columns:1fr}}
+.ic{display:inline-block;height:20px;width:auto;vertical-align:-4px;margin-left:6px}
+.ic-piment{height:22px}.ic-vege{height:16px}
+.ic-goose,.ic-chipie,.ic-jouf{height:30px;border-radius:50%;vertical-align:-9px}
+.ic-fum{height:15px;vertical-align:-2px;background:#F3F0E6;padding:2px 5px;box-sizing:content-box}
+.ic-octant{height:20px}.ic-fous{height:18px}.ic-stella{height:22px}
+.ic-sbsl,.ic-citron,.ic-agneau{height:24px;vertical-align:-6px}
+.mgroup-head p .ic{height:22px}
+
+/* bon de commande du burger */
+.builder{background:var(--paper);color:var(--cobalt);padding:40px;display:grid;grid-template-columns:1.45fr 1fr;gap:44px;border-radius:2px}
+.builder h3{font-size:44px}
+.builder .sub{font-size:16.5px;margin:12px 0 28px;max-width:34em}
+.bstep{margin-bottom:26px}
+.bstep legend{font:700 22px/1 var(--sign);margin-bottom:12px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;padding:9px 13px;border:1.5px solid var(--cobalt);border-radius:3px;font-size:15px;cursor:pointer;background:#fff}
+.chip span small{opacity:.7;margin-left:7px;font-size:13.5px}
+.chip span:hover{background:var(--seafoam)}
+.chip input:checked+span{background:var(--cobalt);color:#fff}
+.chip input:checked+span small{opacity:.85}
+.chip input:focus-visible+span{outline:3px solid var(--red);outline-offset:2px}
+.chip .ic{height:18px}
+.receipt,.cart{background:#EAF2E6;color:var(--cobalt);padding:26px 26px 22px;align-self:start;position:sticky;top:24px;font-size:16px;
+  background-image:repeating-linear-gradient(180deg,transparent 0 33px,rgba(195,54,42,.28) 33px 34px);border-top:6px solid var(--red);box-shadow:0 1px 0 rgba(31,44,102,.2)}
+.receipt h4,.cart h3{font:700 28px/1 var(--sign);margin:0 0 14px}
+.receipt ul,.cart ul{list-style:none;margin:0;padding:0}
+.receipt li,.cart li{display:flex;justify-content:space-between;gap:12px;line-height:34px}
+.receipt .total,.cart .total{display:flex;justify-content:space-between;font:700 30px/1 var(--sign);padding-top:16px;margin-top:6px;border-top:2px solid var(--cobalt)}
+.receipt .fine,.cart .fine{font-size:13.5px;font-style:italic;margin:14px 0 0;line-height:1.5}
+@media (max-width:920px){.builder{grid-template-columns:1fr;padding:26px}.receipt{position:static}}
+
+/* histoire */
+.histoire{padding:120px 0}
+.story{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start;margin-top:56px}
+.story-photo{aspect-ratio:4/5;border:10px solid var(--paper)}
+.story-photo img{object-position:62% 50%}
+.story figcaption{font-size:14px;font-style:italic;margin-top:10px;opacity:.8}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid rgba(31,44,102,.22)}
+.timeline li:first-child{padding-top:0}
+.timeline b{font:700 40px/1 var(--sign);color:var(--red)}
+.timeline p{margin:0}
+.maison{margin-top:40px;font-size:19px;max-width:34em}
+.members{display:flex;align-items:center;gap:20px;margin-top:28px;font-size:16px}
+.members img{height:72px;width:auto;flex:none}
+.members p{margin:0}
+@media (max-width:900px){.story{grid-template-columns:1fr;gap:44px}.story-photo{aspect-ratio:16/11}.timeline li{grid-template-columns:84px 1fr}.timeline b{font-size:32px}}
+
+/* ambiance : le mur rouge */
+.ambiance{background:var(--brick);color:#F6ECDF;padding:120px 0 110px}
+.ambiance .intro p{color:#F6ECDF}
+.mur{display:grid;grid-template-columns:repeat(12,1fr);gap:46px 34px;align-items:start;margin-top:10px}
+.cadre{cursor:zoom-in;margin:0}
+.cadre .ph{border:13px solid var(--wood);box-shadow:inset 0 0 0 2px #7E4A1F,0 0 0 2px #7E4A1F,0 16px 22px -12px rgba(0,0,0,.55);background:#5c241b}
+.cadre figcaption{font-size:14.5px;font-style:italic;margin-top:12px;color:#F6ECDF;opacity:.9}
+.cadre:hover .ph{box-shadow:inset 0 0 0 2px #7E4A1F,0 0 0 2px var(--ochre),0 16px 22px -12px rgba(0,0,0,.55)}
+.c1{grid-column:1/8}.c1 .ph{aspect-ratio:16/9}
+.c2{grid-column:8/13;margin-top:70px}.c2 .ph{aspect-ratio:4/3}
+.c3{grid-column:1/5;margin-top:-10px}.c3 .ph{aspect-ratio:4/5}
+.c4{grid-column:5/9;margin-top:40px}.c4 .ph{aspect-ratio:1}
+.c5{grid-column:9/13;margin-top:-30px}.c5 .ph{aspect-ratio:3/4}
+.c6{grid-column:2/7}.c6 .ph{aspect-ratio:3/2}
+.c7{grid-column:7/12;margin-top:50px}.c7 .ph{aspect-ratio:3/2}
+@media (max-width:900px){.mur{grid-template-columns:1fr 1fr;gap:28px 20px}.mur .cadre{grid-column:auto!important;margin-top:0!important}.mur .c1{grid-column:1/-1!important}.cadre .ph{border-width:9px}}
+.plus{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;margin-top:100px;padding-top:56px;border-top:2px solid rgba(246,236,223,.3)}
+.plus h3{font-size:38px;margin-bottom:14px}
+.plus .terr{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.plus .terr .ph{aspect-ratio:4/5;border:10px solid var(--wood);box-shadow:inset 0 0 0 2px #7E4A1F,0 0 0 2px #7E4A1F}
+.plus p{font-size:17px}
+@media (max-width:900px){.plus{grid-template-columns:1fr;gap:44px}.plus .terr{grid-template-columns:1fr}}
+
+/* salles privées */
+.groupes{padding:120px 0}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.groups .ph{aspect-ratio:5/4;border:10px solid var(--paper)}
+.groups h2{margin-bottom:26px}
+.groups p{font-size:19px;max-width:30em}
+.rooms{display:flex;gap:40px;margin:30px 0 36px}
+.rooms div{font-size:15px;font-style:italic}
+.rooms b{display:block;font:700 64px/1 var(--sign);font-style:normal;color:var(--red)}
+.tel-big{display:inline-block;text-decoration:none}
+.tel-big small{display:block;font-size:16px;font-style:italic;margin-bottom:4px}
+.tel-big b{display:block;font:700 clamp(40px,4.6vw,60px)/1 var(--sign);color:var(--red);border-bottom:4px solid var(--red);padding-bottom:6px}
+.tel-big:hover b{color:var(--cobalt);border-color:var(--cobalt)}
+@media (max-width:900px){.groups{grid-template-columns:1fr;gap:40px}}
+
+/* boutique */
+.boutique{background:var(--paper);padding:0 0 120px;border-top:2px solid var(--cobalt)}
+.enseigne{aspect-ratio:1920/700;max-height:520px;width:100%}
+.enseigne img{object-position:50% 48%}
+.boutique .intro{margin-top:80px}
+.shop{display:grid;grid-template-columns:1.65fr 1fr;gap:44px;align-items:start}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 26px;align-items:start}
+.product{display:flex;flex-direction:column;gap:6px}
+.prod-img{aspect-ratio:1;margin-bottom:10px;border:6px solid #fff;box-shadow:0 0 0 1px rgba(31,44,102,.15)}
+.product .cat{font-size:14px;font-style:italic;opacity:.75}
+.product h3{font:600 18px/1.3 var(--book)}
+.product .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.product .pp{font-weight:700;font-size:18px;color:var(--red)}
+.qty{display:flex;align-items:center;border:1.5px solid var(--cobalt);border-radius:3px}
+.qty button{width:36px;height:34px;border:0;background:none;font-size:19px;cursor:pointer;color:var(--cobalt)}
+.qty button:hover{background:var(--seafoam)}
+.qty output{min-width:22px;text-align:center;font-weight:700}
+.gift{grid-column:1/-1;display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:center;padding-bottom:36px;border-bottom:2px solid var(--cobalt)}
+.gift-img{aspect-ratio:1;border:6px solid #fff;box-shadow:0 0 0 1px rgba(31,44,102,.15)}
+.gift-body{display:flex;flex-direction:column;gap:6px}
+.gift h3{font:700 40px/1 var(--sign)}
+.gift .amounts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.gift .amounts button{font:700 20px/1 var(--sign);padding:12px 18px;border:2px solid var(--cobalt);border-radius:3px;background:#fff;color:var(--cobalt);cursor:pointer}
+.gift .amounts button:hover{background:var(--cobalt);color:#fff}
+.cart li button{border:0;background:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 0 0 6px}
+.form-grid{display:grid;gap:12px;margin-top:18px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:14.5px;font-style:italic}
+label.f input{font:inherit;font-style:normal;font-size:17px;color:var(--cobalt);padding:10px 12px;border:1.5px solid var(--cobalt);border-radius:3px;background:#fff}
+label.f input:focus{outline:0;border-color:var(--red)}
+.cart .call{width:100%;justify-content:center;margin-top:16px;font-size:16px;padding:15px}
+@media (max-width:1000px){.shop{grid-template-columns:1fr}.cart{position:static}}
+@media (max-width:720px){.products{grid-template-columns:1fr 1fr}.gift{grid-template-columns:1fr}.gift-img{max-width:260px}}
+
+/* contact */
+.contact{background:var(--cobalt);color:#F3F0E6;padding:120px 0 100px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;margin-top:20px}
+.hours{width:100%;border-collapse:collapse;font-size:18px}
+.hours td{padding:13px 0;border-bottom:1px solid rgba(243,240,230,.2)}
+.hours td:last-child{text-align:right;font-variant-numeric:lining-nums tabular-nums}
+.hours tr.today td{color:var(--ochre);font-weight:700}
+.hours tr.today td:first-child::after{content:", aujourd'hui";font-weight:400;font-style:italic}
+.season{font-size:15px;font-style:italic;margin-top:12px;opacity:.85}
+.coords{margin-top:40px;display:grid;gap:24px}
+.coords a{text-decoration:none}
+.coords small{display:block;font-size:15px;font-style:italic;opacity:.8;margin-bottom:2px}
+.coords b{display:block;font:700 28px/1.15 var(--sign)}
+.coords a:hover b{color:var(--ochre)}
+.brulee{aspect-ratio:16/9;border:8px solid #F3F0E6;margin-bottom:28px}
+.brulee img{object-position:35% 50%}
+.map{height:360px;border:8px solid #F3F0E6;background:var(--cobalt-2)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:80px;padding-top:40px;border-top:2px solid rgba(243,240,230,.25)}
+.team b{display:block;font:700 26px/1.1 var(--sign)}
+.team span{display:block;font-size:15.5px;font-style:italic;opacity:.85;margin:6px 0 10px}
+.team a{color:var(--ochre);font-weight:600}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}.team{grid-template-columns:1fr;gap:26px}}
+
+/* pied de page */
+footer{background:var(--cobalt-2);color:#E6E3DA;font-size:16px;padding-bottom:30px}
+.fstrip{aspect-ratio:940/200;max-height:300px;width:100%;background:#000}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-top:60px}
+footer h4{font:700 22px/1 var(--sign);margin:0 0 16px;color:#fff}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline;text-decoration-color:var(--ochre)}
+.fbrand{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.fbrand img{width:84px}
+.fbrand b{font:700 32px/1 var(--sign);color:#fff}
+.fbottom{margin-top:50px;padding-top:20px;border-top:1px solid rgba(230,227,218,.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;font-style:italic;opacity:.8}
+@media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
+
+.callbar{display:none}
+@media (max-width:700px){
+  .callbar{display:grid;grid-template-columns:1.4fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--cobalt);padding:8px;gap:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+  .callbar a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:8px 4px;border-radius:3px}
+  .callbar a.main{background:var(--red)}
+  .callbar svg{width:20px;height:20px}
+  body{padding-bottom:76px}
+  .specialites,.menu,.histoire,.ambiance,.groupes,.contact{padding-top:84px;padding-bottom:84px}
+  .wrap{padding-left:22px;padding-right:22px}
+  .hero .lede{font-size:19px}
+}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--cobalt);color:#fff;padding:12px 20px;border-radius:3px;font-size:15px;opacity:0;pointer-events:none;transition:all .25s;z-index:80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(92vw,1300px);max-height:92vh}
+dialog.lb::backdrop{background:rgba(24,35,79,.94)}
+dialog.lb img{max-width:100%;max-height:84vh;display:block;border:10px solid var(--wood)}
+dialog.lb p{color:#fff;text-align:center;margin:12px 0 0;font-style:italic}
+dialog.lb button{position:fixed;top:18px;right:22px;background:#fff;color:var(--cobalt);border:0;border-radius:50%;width:44px;height:44px;font-size:20px;cursor:pointer}
+.nich.far{display:none}
+@media (min-width:1360px){.nich.far{display:block}}
+@media (max-width:900px){.nich i{height:var(--lm)}.nich svg{width:calc(var(--w)*.8)}.hero-grid{padding-top:250px}}
+@media (max-width:900px){.nich:nth-child(1){left:6%}.nich:nth-child(2){left:28%}.nich:nth-child(3){left:48%}.nich:nth-child(4){left:70%}.nich:nth-child(5){left:86%}}
+.gift p{color:var(--cobalt)!important;font-style:italic}
+.product.nophoto{grid-column:1/-1;display:grid;grid-template-columns:110px 1fr auto auto;align-items:center;gap:6px 24px;padding:16px 0;border-top:1px solid rgba(31,44,102,.22)}
+.product.nophoto+.product.nophoto{margin-top:-40px}
+.product.nophoto h3{grid-column:2}.product.nophoto .cat{grid-column:1;grid-row:1}
+.product.nophoto .row{display:contents}
+@media (max-width:720px){.product.nophoto{grid-template-columns:1fr auto;}.product.nophoto .cat{grid-column:1/-1}.product.nophoto h3{grid-column:1/-1}}
+.demo-banner{background:var(--cobalt);color:#F3F0E6;font-size:14px;font-style:italic;text-align:center;padding:8px 16px}
+.demo-banner a{color:var(--ochre)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="demo-banner">Maquette de refonte non officielle proposée par Studio Atlas. Le site officiel du restaurant est <a href="https://centralcaferimouski.com/">centralcaferimouski.com</a>.</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Central Café, accueil"><img src="images/logo-central-cafe.webp" alt=""><span>Central Café</span></a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#maison">Notre histoire</a></li>
+      <li><a href="#ambiance">Ambiance</a></li>
+      <li><a href="#groupes">Salles privées</a></li>
+      <li><a href="#boutique">Boutique</a></li>
+      <li><a href="#contact">Heures et contact</a></li>
+    </ul>
+    <a class="nav-phone" href="tel:+14187224011">418 722-4011</a>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navlinks">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+  <div class="beam"></div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="nichoirs" aria-hidden="true">
+    <div class="nich " style="--x:57%;--len:38px;--w:64px;--lm:90px"><i></i><svg viewBox="0 0 80 96" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><path d="M8 42 40 11l32 31z" fill="#C3362A" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><rect x="15" y="40" width="50" height="44" fill="#FBF8F1" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><circle cx="40" cy="57" r="7.5" fill="#1F2C66"/><path d="M40 68v9" stroke="#1F2C66" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="72.8" r="3.2" fill="#C3362A"/><circle cx="27.2" cy="76" r="3.2" fill="#C3362A"/><circle cx="24" cy="79.2" r="3.2" fill="#C3362A"/><circle cx="20.8" cy="76" r="3.2" fill="#C3362A"/><circle cx="24" cy="76" r="2.2399999999999998" fill="#EFA93F"/><circle cx="57" cy="45.4" r="2.6" fill="#1F2C66"/><circle cx="59.6" cy="48" r="2.6" fill="#1F2C66"/><circle cx="57" cy="50.6" r="2.6" fill="#1F2C66"/><circle cx="54.4" cy="48" r="2.6" fill="#1F2C66"/><circle cx="57" cy="48" r="1.8199999999999998" fill="#EFA93F"/><rect x="10" y="84" width="60" height="7" fill="#B8773B" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+    <div class="nich " style="--x:65.5%;--len:120px;--w:50px;--lm:40px"><i></i><svg viewBox="0 0 60 126" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><path d="M17 31 30 9l13 22z" fill="#1F2C66" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><rect x="19" y="30" width="22" height="14" fill="#EFA93F" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M26 30v14M34 30v14" stroke="#1F2C66" stroke-width="1.8"/><path d="M14 44h32l4 70H10z" fill="#FBF8F1" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M13.31 56H46.69L47.37 68H12.63Z" fill="#C3362A"/><path d="M11.83 82H48.17L48.86 94H11.14Z" fill="#C3362A"/><path d="M10.57 104H49.43L50.00 114H10.00Z" fill="#C3362A"/><path d="M14 44h32l4 70H10z" fill="none" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><circle cx="30" cy="75" r="5.5" fill="#1F2C66"/><rect x="5" y="113" width="50" height="8" fill="#B8773B" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+    <div class="nich " style="--x:74.5%;--len:52px;--w:78px;--lm:70px"><i></i><svg viewBox="0 0 90 94" xmlns="http://www.w3.org/2000/svg"><circle cx="45" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><path d="M5 41 15 20 45 9l30 11 10 21z" fill="#7E4A1F" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><rect x="12" y="39" width="66" height="44" fill="#3F7F71" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M23 41v40M34 41v40M56 41v40M67 41v40" stroke="#2F6458" stroke-width="2"/><circle cx="45" cy="58" r="13" fill="none" stroke="#EFA93F" stroke-width="3" stroke-dasharray="2.5 3.2"/><circle cx="45" cy="58" r="8" fill="#1F2C66"/><path d="M30 76h30" stroke="#EFA93F" stroke-width="3"/><path d="M33 72v8M39 72v8M45 72v8M51 72v8M57 72v8" stroke="#EFA93F" stroke-width="2"/><rect x="6" y="83" width="78" height="8" fill="#B8773B" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+    <div class="nich " style="--x:84%;--len:196px;--w:56px;--lm:30px"><i></i><svg viewBox="0 0 70 98" xmlns="http://www.w3.org/2000/svg"><circle cx="35" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><path d="M35 9 66 86H4z" fill="#EFA93F" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M35 9 4 86M35 9l31 77" stroke="#7E4A1F" stroke-width="6" stroke-linecap="round"/><path d="M35 9 4 86M35 9l31 77" fill="none" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M35 70c-13-9-11-22-2-21 1 0 2 1 2 2 0-1 1-2 2-2 9-1 11 12-2 21z" fill="#1F2C66"/><rect x="2" y="85" width="66" height="8" fill="#B8773B" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+    <div class="nich " style="--x:92.5%;--len:86px;--w:48px;--lm:150px"><i></i><svg viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><rect x="27" y="8" width="6" height="9" fill="#7E4A1F" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M30 16c-9 0-8 17-6 24-13 7-18 28-10 41 7 12 25 12 32 0 8-13 3-34-10-41 2-7 3-24-6-24z" fill="#CFE3EA" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><path d="M11 72c10 7 28 7 38 0 0 4-1 7-3 9-7 12-25 12-32 0-2-2-3-5-3-9z" fill="#9CC28A"/><path d="M30 16c-9 0-8 17-6 24-13 7-18 28-10 41 7 12 25 12 32 0 8-13 3-34-10-41 2-7 3-24-6-24z" fill="none" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><circle cx="30" cy="58" r="6" fill="#1F2C66"/></svg></div>
+    <div class="nich far" style="--x:1.6%;--len:360px;--w:52px;--lm:0px"><i></i><svg viewBox="0 0 72 86" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="5" r="3.6" fill="none" stroke="#1F2C66" stroke-width="2.4"/><path d="M4 38 36 11l32 27z" fill="#7E4A1F" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><rect x="11" y="36" width="50" height="38" fill="#2B3F9E" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="43.2" r="2.8" fill="#C3362A"/><circle cx="22.8" cy="46" r="2.8" fill="#C3362A"/><circle cx="20" cy="48.8" r="2.8" fill="#C3362A"/><circle cx="17.2" cy="46" r="2.8" fill="#C3362A"/><circle cx="20" cy="46" r="1.9599999999999997" fill="#EFA93F"/><circle cx="52" cy="61.2" r="2.8" fill="#C3362A"/><circle cx="54.8" cy="64" r="2.8" fill="#C3362A"/><circle cx="52" cy="66.8" r="2.8" fill="#C3362A"/><circle cx="49.2" cy="64" r="2.8" fill="#C3362A"/><circle cx="52" cy="64" r="1.9599999999999997" fill="#EFA93F"/><circle cx="47" cy="42.8" r="2.2" fill="#C3362A"/><circle cx="49.2" cy="45" r="2.2" fill="#C3362A"/><circle cx="47" cy="47.2" r="2.2" fill="#C3362A"/><circle cx="44.8" cy="45" r="2.2" fill="#C3362A"/><circle cx="47" cy="45" r="1.54" fill="#EFA93F"/><circle cx="22" cy="63.8" r="2.2" fill="#C3362A"/><circle cx="24.2" cy="66" r="2.2" fill="#C3362A"/><circle cx="22" cy="68.2" r="2.2" fill="#C3362A"/><circle cx="19.8" cy="66" r="2.2" fill="#C3362A"/><circle cx="22" cy="66" r="1.54" fill="#EFA93F"/><circle cx="36" cy="54" r="6.5" fill="#0F1640"/><rect x="7" y="74" width="58" height="7" fill="#B8773B" stroke="#1F2C66" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="status"><span class="dot" id="statusDot"></span><span id="statusText">Heures d'ouverture</span></p>
+      <h1><span>Le Central Café,</span> <span>plus qu'un restaurant</span></h1>
+      <p class="lede">Service courtois, convivialité et bonne humeur garantie! Un incontournable à Rimouski pour son menu, son ambiance, son service et son décor.</p>
+      <div class="hero-actions">
+        <a class="call" href="tel:+14187224011"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Réserver au 418 722-4011</a>
+        <a class="textlink" href="#menu">Voir notre menu</a>
+      </div>
+      <p class="addr">31, rue de l'Évêché Ouest, au centre-ville de Rimouski</p>
+    </div>
+    <figure class="facade">
+      <div class="ph" data-alt="La façade et la terrasse en été"><img src="images/la-facade-du-central-cafe-et-sa-terrasse-en-ete.webp" alt="La façade du Central Café et sa terrasse en été" fetchpriority="high"></div>
+      <figcaption>La maison de 1920, rue de l'Évêché Ouest</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="specialites" id="specialites">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Nos spécialités</h2>
+      <p>Situé au centre-ville, le Central Café est le point de rassemblement du Tout-Rimouski. Les recettes sont créées par nos cuisiniers et préparées sur place avec des produits régionaux.</p>
+    </div>
+    <div class="plats">
+      <a class="plat" href="#menu" data-jump="pizzas"><figure class="ph photo" data-alt="Nos pizzas fines"><img src="images/une-pizza-fine-du-central-cafe.webp" alt="Une pizza fine du Central Café" loading="lazy"></figure><h3>Nos pizzas fines</h3><p>Pâte fine ou Chicago. Pâte fine sans gluten disponible.</p><span class="textlink">Voir les 14 pizzas</span></a>
+      <a class="plat" href="#menu" data-jump="burgers"><figure class="ph cut" data-alt="Nos savoureux burgers"><img src="images/un-burger-aux-oignons-caramelises-et-ses-frites-ma.webp" alt="Un burger aux oignons caramélisés et ses frites maison" loading="lazy"></figure><h3>Nos savoureux burgers</h3><p>Quatre burgers de base et onze garnitures au choix.</p><span class="textlink">Composer le vôtre</span></a>
+      <a class="plat" href="#menu" data-jump="pates"><figure class="ph cut" data-alt="Nos pâtes fraîches"><img src="images/des-pennes-en-sauce.webp" alt="Des pennes en sauce" loading="lazy"></figure><h3>Nos pâtes fraîches</h3><p>Linguines ou pennes. Pennes sans gluten disponibles.</p><span class="textlink">Voir les 12 pâtes</span></a>
+      <a class="plat" href="#menu" data-jump="desserts"><figure class="ph cut" data-alt="Nos délicieuses crèmes brûlées"><img src="images/une-creme-brulee-a-la-vanille.webp" alt="Une crème brûlée à la vanille" loading="lazy"></figure><h3>Nos délicieuses crèmes brûlées</h3><p>À la vanille, un classique à redécouvrir.</p><span class="textlink">Voir les desserts</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <h2>Le menu</h2>
+        <p style="margin-top:24px">Tous les mets du menu sont disponibles pour emporter (excluant les boissons alcoolisées). Des frais de 1&nbsp;$ s'appliquent.</p>
+        <a class="textlink pdf" href="https://centralcaferimouski.com/wp-content/uploads/MenuPrincipalAvril2026.pdf" target="_blank" rel="noopener">Télécharger le menu d'avril 2026 en PDF</a>
+      </div>
+      <figure class="ph menu-photo" data-alt="Le menu du Central Café sur une table"><img src="images/le-menu-du-central-cafe-sur-une-table.webp" alt="Le menu du Central Café sur une table" loading="lazy" style="object-position:58% 45%"></figure>
+    </div>
+    <div class="menu-tools">
+      <label class="search">Chercher un plat ou un ingrédient
+        <input id="q" type="search" placeholder="chèvre, Tao, saumon…" autocomplete="off">
+      </label>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="menuOut" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="histoire" id="maison">
+  <div class="wrap">
+    <h2>Notre histoire</h2>
+    <div class="story">
+      <figure>
+        <div class="ph story-photo" data-alt="En cuisine au Central Café"><img src="images/un-cuisinier-aux-fourneaux-du-central-cafe.webp" alt="Un cuisinier aux fourneaux du Central Café" loading="lazy"></div>
+        <figcaption>Les recettes sont créées par nos cuisiniers et préparées sur place.</figcaption>
+      </figure>
+      <div>
+        <ol class="timeline">
+          <li><b>1920</b><p>Georges Gagnon, un prêtre retraité, fait construire la maison. Son pignon en façade et ses galeries sur trois côtés la rendent unique. Les poteaux en bois tourné et les consoles à volutes de la balustrade sont d'origine.</p></li>
+          <li><b>1995</b><p>En juin, Julie Lacroix et Alain Bellavance créent le concept du Central Café. Alain Bellavance commence la collection de cabanes d'oiseaux.</p></li>
+          <li><b>Puis</b><p>Le restaurant est vendu à l'homme d'affaires Jean-Yves Beaulieu, à sa conjointe Nicole Thibault, à leur fils Alain et à sa conjointe Sandra Marceau.</p></li>
+          <li><b>2015</b><p>En juin, le restaurant passe aux mains de ses employés, réunis en coopérative.</p></li>
+        </ol>
+        <p class="maison">Burgers aux garnitures au choix (le Célèbre demeure le favori), pâtes, pizzas, escalopes et frites maison. Desserts maison.</p>
+        <div class="members">
+          <a href="https://saveursbsl.com/" target="_blank" rel="noopener"><img src="images/saveurs-du-bas-saint-laurent.webp" alt="Saveurs du Bas-Saint-Laurent"></a>
+          <p>Membre des Saveurs du Bas-Saint-Laurent et de l'Association des restaurateurs du Québec. Le Central Café met de l'avant les produits agroalimentaires de la région et encourage les artisans d'ici.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ambiance" id="ambiance">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Un décor original</h2>
+      <p>Un escalier historique et plus d'un millier de cabanes d'oiseaux. La collection a été commencée par le fondateur Alain Bellavance, et les nouveaux propriétaires continuent de l'agrandir.</p>
+    </div>
+    <div class="mur gallery">
+      <figure class="cadre c1" data-alt="Un soir de semaine dans la salle à manger" data-full="images/un-soir-de-semaine-dans-la-salle-a-manger.webp"><div class="ph"><img src="images/un-soir-de-semaine-dans-la-salle-a-manger.webp" alt="Un soir de semaine dans la salle à manger" loading="lazy" style="object-position:50% 45%"></div><figcaption>Un soir de semaine dans la salle à manger</figcaption></figure>
+      <figure class="cadre c2" data-alt="La salle à manger" data-full="images/la-salle-a-manger.webp"><div class="ph"><img src="images/la-salle-a-manger.webp" alt="La salle à manger" loading="lazy" style="object-position:50% 50%"></div><figcaption>La salle à manger</figcaption></figure>
+      <figure class="cadre c3" data-alt="Collection de cabanes à oiseaux" data-full="images/collection-de-cabanes-a-oiseaux.webp"><div class="ph"><img src="images/collection-de-cabanes-a-oiseaux.webp" alt="Collection de cabanes à oiseaux" loading="lazy" style="object-position:45% 50%"></div><figcaption>Collection de cabanes à oiseaux</figcaption></figure>
+      <figure class="cadre c4" data-alt="Cabanes à oiseaux au plafond" data-full="images/cabanes-a-oiseaux-au-plafond.webp"><div class="ph"><img src="images/cabanes-a-oiseaux-au-plafond.webp" alt="Cabanes à oiseaux au plafond" loading="lazy" style="object-position:50% 50%"></div><figcaption>Cabanes à oiseaux au plafond</figcaption></figure>
+      <figure class="cadre c5" data-alt="Une ambiance originale" data-full="images/une-ambiance-originale.webp"><div class="ph"><img src="images/une-ambiance-originale.webp" alt="Une ambiance originale" loading="lazy" style="object-position:52% 50%"></div><figcaption>Une ambiance originale</figcaption></figure>
+      <figure class="cadre c6" data-alt="Nos bières en fût" data-full="images/nos-bieres-en-fut.webp"><div class="ph"><img src="images/nos-bieres-en-fut.webp" alt="Nos bières en fût" loading="lazy" style="object-position:50% 50%"></div><figcaption>Nos bières en fût</figcaption></figure>
+      <figure class="cadre c7" data-alt="Notre carte des vins" data-full="images/notre-carte-des-vins.webp"><div class="ph"><img src="images/notre-carte-des-vins.webp" alt="Notre carte des vins" loading="lazy" style="object-position:50% 50%"></div><figcaption>Notre carte des vins</figcaption></figure>
+    </div>
+    <div class="plus">
+      <div class="terr">
+        <div class="ph" data-alt="Le Central Café et sa terrasse le soir"><img src="images/la-terrasse-du-central-cafe-le-soir.webp" alt="La terrasse du Central Café le soir" loading="lazy" style="object-position:35% 60%"></div>
+        <div><h3>Terrasse chauffée</h3><p>Une terrasse d'une vingtaine de places accueille les clients durant la belle saison, à l'avant de la maison victorienne, à l'ombre d'arbres matures. Elle est chauffée, pour en profiter en début et en fin de saison.</p></div>
+      </div>
+      <div>
+        <h3>Pour les familles</h3>
+        <p>Un coin pour les enfants avec jeux, casse-têtes et cahiers à colorier. Tables à langer, chaises hautes et sièges d'appoint disponibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="groupes" id="groupes">
+  <div class="wrap groups">
+    <figure class="ph" data-alt="Salle privée du Central Café"><img src="images/une-salle-privee-du-central-cafe.webp" alt="Une salle privée du Central Café" loading="lazy"></figure>
+    <div>
+      <h2>Salles privées</h2>
+      <p>Le lieu tout désigné pour tous vos rendez-vous : tête-à-tête en amoureux, lunchs entre collègues de travail, réunions d'affaires, soupers en famille, fêtes d'anniversaire ou célébrations entre amis.</p>
+      <div class="rooms" aria-label="Capacité des trois salles privées">
+        <div><b>12</b>personnes</div><div><b>20</b>personnes</div><div><b>30</b>personnes</div>
+      </div>
+      <a class="tel-big" href="tel:+14187224011"><small>Réservations des salles, par téléphone</small><b>418 722-4011</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="boutique" id="boutique">
+  <figure class="ph enseigne" data-alt="L'enseigne de la boutique au Central Café"><img src="images/l-enseigne-boutique-peinte-a-la-main-au-central-ca.webp" alt="L'enseigne Boutique peinte à la main au Central Café" loading="lazy"></figure>
+  <div class="wrap">
+    <div class="intro">
+      <h2>Boutique Signature</h2>
+      <p>Mets prêts à cuisiner et chèques cadeaux. Ces produits sont disponibles seulement en restaurant, pour emporter. Le paiement se fera à la cueillette. Préparation des commandes du mardi au samedi inclusivement, avec un délai de 24 à 48 h.</p>
+    </div>
+    <div class="shop">
+      <div class="products" id="products"></div>
+      <aside class="cart" aria-label="Votre commande">
+        <h3>Votre commande</h3>
+        <ul id="cartList"><li style="justify-content:flex-start;font-style:italic">Votre panier est vide.</li></ul>
+        <div class="total"><span>Total</span><span id="cartTotal">0,00 $</span></div>
+        <form id="shopForm">
+          <div class="form-grid">
+            <label class="f">Nom<input name="nom" required autocomplete="name"></label>
+            <label class="f">Téléphone<input name="tel" type="tel" required autocomplete="tel"></label>
+            <label class="f">Date de cueillette, du mardi au samedi<input name="date" type="date" id="pickup" required></label>
+          </div>
+          <button class="call" type="submit">Envoyer la commande</button>
+          <p class="fine">Le paiement se fera à la cueillette. Ce formulaire prépare un courriel adressé au restaurant.</p>
+        </form>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Heures d'ouverture</h2>
+    <div class="contact-grid">
+      <div>
+        <table class="hours" id="hoursTable"><caption style="position:absolute;left:-999px">Heures d'ouverture</caption><tbody></tbody></table>
+        <p class="season">Sujet à changements selon la saison.</p>
+        <div class="coords">
+          <a href="tel:+14187224011"><small>Réservations</small><b>418 722-4011</b></a>
+          <a href="tel:+14187224015"><small>Autre ligne</small><b>418 722-4015</b></a>
+          <a href="https://www.google.com/maps/place/Central+Cafe/@48.4479399,-68.5256656,18.75z/data=!4m5!3m4!1s0x4c95d9bd55b98adb:0x57187403bb276866!8m2!3d48.4479903!4d-68.525087" target="_blank" rel="noopener"><small>Adresse</small><b>31, rue de l'Évêché Ouest<br>Rimouski (Québec) G5L 4H4</b></a>
+          <a href="mailto:centralcaferimouski@gmail.com"><small>Courriel</small><b style="font-size:22px">centralcaferimouski@gmail.com</b></a>
+        </div>
+      </div>
+      <div>
+        <figure class="ph brulee" data-alt="Une crème brûlée caramélisée au bar du Central Café"><img src="images/une-creme-brulee-caramelisee-au-bar-du-central-caf.webp" alt="Une crème brûlée caramélisée au bar du Central Café" loading="lazy"></figure>
+        <div class="map"><iframe title="Carte : Central Café, 31 rue de l'Évêché Ouest, Rimouski" loading="lazy" src="https://www.google.com/maps?q=48.4479903,-68.525087&z=17&output=embed"></iframe></div>
+      </div>
+    </div>
+    <div class="team">
+      <div><b>Nancy Dubé</b><span>Directrice générale, administration et facturation</span><a href="mailto:centralcaferimouski@gmail.com">Écrire à Nancy</a></div>
+      <div><b>Julie Roy</b><span>Serveuse et vice-présidente marketing</span><a href="mailto:jroy@centralcaferimouski.com">Écrire à Julie</a></div>
+      <div><b>Christian Bélanger</b><span>Vice-président des ressources humaines et responsable des cuisines</span><a href="mailto:cbelanger@centralcaferimouski.com?subject=Candidature">Envoyer votre CV</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <figure class="ph fstrip" data-alt="L'entrée du Central Café le soir"><img src="images/l-entree-et-l-enseigne-du-central-cafe-le-soir.webp" alt="L'entrée et l'enseigne du Central Café le soir" loading="lazy"></figure>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="images/logo-central-cafe.webp" alt="Restaurant Central Café"><b>Central Café</b></div>
+        <p>31, rue de l'Évêché Ouest<br>Rimouski (Québec) G5L 4H4</p>
+      </div>
+      <div><h4>Manger</h4><ul><li><a href="#menu">Le menu</a></li><li><a href="#menu" data-jump="desserts">Desserts</a></li><li><a href="#menu" data-jump="bar">Bar et cocktails</a></li><li><a href="https://www.doordash.com/fr-CA/store/central-caf-rimouski-rimouski--rimouski-qc-1413336" target="_blank" rel="noopener">Livraison par DoorDash</a></li></ul></div>
+      <div><h4>La maison</h4><ul><li><a href="#maison">Notre histoire</a></li><li><a href="#ambiance">Ambiance</a></li><li><a href="#groupes">Salles privées</a></li><li><a href="#boutique">Boutique Signature</a></li></ul></div>
+      <div><h4>Suivez-nous</h4><ul><li><a href="https://www.facebook.com/pages/Central-Caf-Rimouski/1434896466726640" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.instagram.com/centralcaferimouski/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2026 Central Café Rimouski</span><span>Maquette de refonte proposée par Studio Atlas</span></div>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Actions rapides">
+  <a class="main" href="tel:+14187224011"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler pour réserver</a>
+  <a href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Menu</a>
+  <a href="https://www.google.com/maps/dir/?api=1&destination=48.4479903,-68.525087" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Itinéraire</a>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+
+const $ = s => document.querySelector(s);
+const fmt = n => n.toFixed(2).replace('.', ',') + ' $';
+const EMAIL = 'centralcaferimouski@gmail.com';
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+
+/* ---------- Mobile nav ---------- */
+const tog=$('.menu-toggle'), links=$('#navlinks');
+tog.addEventListener('click',()=>{const o=links.classList.toggle('open');tog.setAttribute('aria-expanded',o)});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');tog.setAttribute('aria-expanded',false)}));
+
+/* ---------- Hours & live status (heure de Rimouski) ---------- */
+const DAYS=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+const HOURS={0:[[16,20]],1:[[11,14],[16,21]],2:[[11,14],[16,21]],3:[[11,14],[16,21]],4:[[11,14],[16,22]],5:[[11,14],[16,22]],6:[[16,22]]};
+const h=x=>x+' h';
+function nowRimouski(){
+  const p=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+  const g=t=>p.find(x=>x.type===t).value;
+  return {day:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),t:(+g('hour')%24)+(+g('minute'))/60};
+}
+function renderHours(){
+  const {day,t}=nowRimouski();
+  const tb=$('#hoursTable tbody');tb.innerHTML='';
+  [1,2,3,4,5,6,0].forEach(d=>{
+    const tr=document.createElement('tr');if(d===day)tr.className='today';
+    tr.innerHTML=`<td>${DAYS[d]}</td><td>${HOURS[d].map(r=>h(r[0])+' – '+h(r[1])).join(', ')}</td>`;tb.appendChild(tr);
+  });
+  const today=HOURS[day];let txt,cls;
+  const cur=today.find(r=>t>=r[0]&&t<r[1]);
+  if(cur){cls='open';txt=`Ouvert maintenant, ferme à ${h(cur[1])}`}
+  else{
+    const next=today.find(r=>t<r[0]);cls='closed';
+    if(next)txt=`Fermé, ouvre à ${h(next[0])} aujourd'hui`;
+    else{const nd=(day+1)%7;txt=`Fermé, ouvre ${nd===(day+1)%7?'demain':DAYS[nd].toLowerCase()} à ${h(HOURS[nd][0][0])}`}
+  }
+  $('#statusDot').className='dot '+cls;$('#statusText').textContent=txt;
+}
+renderHours();setInterval(renderHours,60000);
+
+/* ---------- Menu data (repris du site actuel, avril 2026) ---------- */
+const IC={"vege": ["images/icone-vege.png", "Plats végétaliens"], "piment": ["images/icone-piment.png", "Piment fort"], "sbsl": ["images/icone-sbsl.png", "Les saveurs du Bas-St-Laurent"], "agneau": ["images/icone-agneau.png", "L'agneau de chez-nous Bas-St-Laurent"], "fum": ["images/icone-fum.png", "La Fumerie d'Ici"], "citron": ["images/icone-citron.png", "Boulangerie Citron Confit - Depuis 2016"], "goose": ["images/icone-goose.png", "Goose Island"], "chipie": ["images/icone-chipie.png", "La Chipie"], "jouf": ["images/icone-jouf.png", "La joufflue"], "stella": ["images/icone-stella.png", "Stella Artois"], "fous": ["images/icone-fous.png", "Aux Fous Brassant - Microbrasserie"], "octant": ["images/icone-octant.png", "L'Octant Microbrasserie"]};
+const ic=(...ks)=>' '+ks.map(k=>`<img class="ic ic-${k}" src="${IC[k][0]}" alt="${IC[k][1]}" title="${IC[k][1]}">`).join('');
+const S='<span class="star">*</span>';
+const MENU=[
+ {id:'entrees',label:'Entrées & table d\'hôte',groups:[
+  {t:'Table d\'hôte',box:`<b>Transformez votre plat principal en table d'hôte</b> en y ajoutant une entrée, un dessert ou thé, café ou tisane. À partir de 16,50 $ de plus. Choix d'entrées indiquées par un ${S} : 2 $, 3 $ ou 5 $ de plus. Ne peut être jumelé à aucune promotion.`,items:[]},
+  {t:'Nos entrées',items:[
+   ['Les petits pogos','Deux petits pogos faits maison accompagnés de moutarde au miel et de verdure','Simple 8 $ / Double (à partager) 15,75 $'],
+   ['Rondelles d\'oignon','','8,75 $'],
+   ['Bol de frites maison','Avec choix de mayonnaise maison (originale, sriracha ou pesto)','8,75 $'],
+   ['Bruschetta au fromage de chèvre '+S,'Accompagnée de verdure et vinaigrette maison','12 $'],
+   ['Fondue au parmesan maison '+S,'Accompagnée de verdure et sauce crémeuse','13,25 $'],
+   ['Bouchées de Général Tao','Version poulet ou crevettes. Accompagnées de verdure et sauce Tao maison','Simple 13,25 $ '+S+' / Double 22,75 $'],
+   ['Croquettes maison aux fromages et amandes','Accompagnées de verdure et sauce salsa','3 mcx 14 $ '+S+' / 6 mcx 23,75 $'],
+   ['Calmars frits '+S,'Calmars frits et mayo aïoli','15,25 $'],
+   ['Mini nachos classiques','Poivrons, salsa, piments jalapeños, cheddar marbré, tomates fraîches, échalotes, olives. Extra guacamole ou crème sure 3 $, bacon 4,75 $, saucisse 4,50 $, poulet 9,25 $','Simple 16,25 $ '+S+' / Double 29 $'],
+   ['Saumon fumé sur pain naan '+S+ic('sbsl','fum'),'Pain naan, sauce bruschetta, oignon rouge, saumon fumé, mesclun et vinaigrette à l\'érable','16,75 $']
+  ]}]},
+ {id:'salades',label:'Salades & poutines',groups:[
+  {t:'Salades',note:'Extra poulet 9,25 $ / Extra crevettes 7,25 $',items:[
+   ['Salade César','Romaine, bacon, croûtons, cheddar et parmesan','Demi 16,60 $ / Grande 25,90 $'],
+   ['Salade mesclun du jardin','Mesclun, tomates, concombres, cheddar, luzerne, carottes, champignons, oignon, olives et choix de votre vinaigrette : érable, framboises balsamique ou herbes du jardin','Demi 16,60 $ / Grande 25,90 $'],
+   ['Salade de pomme, noix de Grenoble glacées et bleu','Mesclun, luzerne, pommes et noix de Grenoble glacées, vinaigrette à l\'érable','Demi 17,60 $ / Grande 29 $'],
+   ['Salade calda tiède au fromage de chèvre','Mesclun, noix de Grenoble glacées, bacon (lardon), mandarines, luzerne, vinaigrette framboises balsamique','Demi 17,60 $ / Grande 29 $']
+  ]},
+  {t:'Poutines',items:[
+   ['Poutine régulière','','18,65 $'],
+   ['Poutine Central','Poivrons, oignon, bacon et smoked meat','24,85 $'],
+   ['Poutine Tao','Sauce maison régulière, Tao et thaï, version poulet ou crevettes tempura, échalotes et graines de sésame','26,90 $']
+  ]}]},
+ {id:'incontournables',label:'Incontournables',groups:[
+  {t:'Incontournables',note:'Choix de 2 accompagnements (sauf poulet au beurre) : pâtes au beurre et pesto maison, légumes au beurre, riz basmati, rondelles d\'oignon, salade César ou salade verte, frites maison avec choix de mayonnaise (originale, sriracha ou pesto). Changez vos frites en poutine pour 6 $ de plus.',items:[
+   ['Poulet au beurre','Sauce crémeuse au cari rouge, gingembre et tomates, servi avec pain naan et riz basmati','25,90 $'],
+   ['Poitrine de poulet BBQ maison'+ic('sbsl'),'Accompagnée d\'une sauce BBQ maison','28 $'],
+   ['Filet de poisson frit (Fish and Chips)','Accompagné de sauce tartare maison','29 $'],
+   ['Filet de saumon'+ic('sbsl'),'Garniture : chutney aux pommes','30 $'],
+   ['Escalope de veau poêlée','Sauce au choix : crème, champignons et bleu / porto et poireau / brandy et 5 poivres / crème et fromage de chèvre','35 $']
+  ]}]},
+ {id:'burgers',label:'Burgers',groups:[
+  {t:'Nos burgers',builder:true,items:[]}]},
+ {id:'pizzas',label:'Pizzas',groups:[
+  {t:'Nos pizzas',note:'Choix de pâte fine ou Chicago (** sauce tomate chunky pour la pâte Chicago). Pâte fine sans gluten : extra 4,50 $.'+ic('sbsl','citron'),items:[
+   ['Pepperoni','Sauce tomate**, mozzarella','18,90 $'],
+   ['L\'Américaine','Sauce tomate**, pepperoni, champignons, poivrons, mozzarella','22,25 $'],
+   ['Jardinière','Sauce tomate**, champignons, olives Kalamata, tomates, épinards, zucchinis, parmesan, mozzarella','22,25 $'],
+   ['La chèvre','Sauce tomate**, fromage de chèvre, mozzarella, tomates, parmesan, échalotes, thym','23,25 $'],
+   ['Triple plaisir','Sauce tomate**, pepperoni, bacon, saucisses italiennes douces, mozzarella, parmesan','23,25 $'],
+   ['BBQ à la Jim','Sauce tomate**, mozzarella, oignon, poulet, olives noires, tomates, sauce chipotle','23,75 $'],
+   ['La pizza smoked meat','Sauce chipotle, smoked meat, mozzarella, tomates, bacon, poivrons verts, échalotes','24,75 $'],
+   ['Crevettes et gingembre','Sauce tomate** ou béchamel, crevettes, gingembre, oignon, parmesan, mozzarella','24,75 $'],
+   ['La préférée d\'Al Capone','Sauce béchamel, poulet aux fines herbes, parmesan, oignon, poivrons, mozzarella','24,75 $'],
+   ['Campagnarde','Sauce tomate**, artichauts, tomates séchées, poivrons, olives Kalamata, champignons, mozzarella, parmesan','25,75 $'],
+   ['Classique new-yorkaise','Sauce tomate**, saucisses italiennes douces, pepperoni, oignon, champignons, tomates, mozzarella, fromage marbré','25,75 $'],
+   ['La pizza bruschetta','Sauce pesto, poulet aux fines herbes, mozzarella, mélange à bruschetta, parmesan','25,75 $'],
+   ['De l\'océan','Sauce béchamel, moules, pétoncles, goberge, crevettes, parmesan, échalotes, mozzarella','29 $'],
+   ['La saumonée'+ic('sbsl','fum'),'Sauce béchamel, saumon fumé, câpres, oignon, tomates, échalotes, mozzarella, parmesan','29 $']
+  ]}]},
+ {id:'pates',label:'Pâtes',groups:[
+  {t:'Nos pâtes',note:'Choix de linguines ou pennes. Pennes sans gluten disponibles. Gratinez vos pâtes avec notre mélange de fromages : 5 $.',items:[
+   ['Bacon et champignons','Bacon, champignons, ail, oignon, sauce rosée, parmesan','23,80 $'],
+   ['Carbonara classique','Bacon, vin blanc, ail, oignon, sauce crème, parmesan','24,85 $'],
+   ['Légumes grillés et sauce tomate','Mélange de légumes de saison, ail, oignon, parmesan','24,85 $'],
+   ['Alfredo et poulet aux fines herbes','Sauce crème, poulet aux fines herbes, ail, oignon, parmesan','24,85 $'],
+   ['Alfredo et crevettes','Sauce crème, crevettes, ail, oignon, parmesan','24,85 $'],
+   ['Saucisses italiennes et olives Kalamata','Saucisses italiennes douces, olives Kalamata, ail, oignon, sauce rosée, parmesan','26,90 $'],
+   ['Poulet et pesto brocoli','Sauce pesto et sauce crème, poulet aux fines herbes, brocoli, échalotes, parmesan','26,90 $'],
+   ['Pâtes du grimpeur','Sauce rosée, bacon, smoked meat, poivrons, ail, oignon, champignons, parmesan','28 $'],
+   ['Alfredo aux produits de la mer','Moules, crevettes, pétoncles, goberge, ail, oignon, sauce crème, parmesan','29 $'],
+   ['Le Général Tao','Version poulet ou crevettes tempura. Légumes, vermicelles, échalotes et graines de sésame','29 $'],
+   ['Saumon fumé et fromage à la crème'+ic('sbsl','fum'),'Saumon fumé régional, tomates, ail, oignon, sauce rosée, parmesan, fromage à la crème','32 $'],
+   ['Pesto, légumes (crevettes ou poulet)','Pesto maison, crevettes, mélange de légumes de saison, tomates séchées, noix de pin, parmesan','32 $']
+  ]}]},
+ {id:'smoked',label:'Smoked meat',groups:[
+  {t:'Sandwichs de smoked meat',note:'Avec pain de seigle et choix de moutarde : ancienne (Meaux), Dijon ou régulière. Accompagnements : frites maison 8,50 $, rondelles d\'oignon 8,50 $, salade mesclun 8,75 $, salade César 8,75 $, poutine 14 $.',table:{head:['Format','Sandwich de smoked meat','De luxe / relish aux zucchinis et fromage suisse'],rows:[['3 oz (petit)','10,50 $','13,75 $'],['5 oz (régulier)','15 $','18 $'],['7 oz (jumbo)','20,45 $','23,40 $']]},items:[]}]},
+ {id:'desserts',label:'Desserts',groups:[
+  {t:'Nos desserts',items:[
+   ['Gâteau aux carottes','','7 $'],['Fondant au chocolat','Accompagné de crème glacée','7,50 $'],['Tarte au sucre','En l\'honneur du bon vieux temps. Extra crème glacée 2,50 $','7,50 $'],['Gâteau au chocolat « Central Café »','Génoise et glaçage au chocolat','7,75 $'],['Crème brûlée à la vanille','Un classique à redécouvrir','8,25 $'],['Le Royal','Croquant aux amandes et aux noisettes avec riche mousse de chocolat noir, caramel et ganache au chocolat','8,25 $'],['Pouding aux pommes','Sauce au rhum','Demi 5 $ / Complet 8,50 $'],['Gâteau fromage style New York','L\'onctuosité d\'un vrai gâteau au fromage avec coulis aux framboises ou au caramel à la fleur de sel','9 $']
+  ]},
+  {t:'Cafés spéciaux',items:[
+   ['Le Frangelico','Frangelico, Carolans','8 $'],['L\'Irlandais','Cognac, Bailey\'s','8 $'],['L\'Espagnol','Cognac, Tia Maria','8 $'],['Le Brésilien','Cognac, Grand Marnier, Tia Maria','9 $'],['Le « Central Café »','Cognac, Grand Marnier, Frangelico, Carolans','10,50 $']
+  ]}]},
+ {id:'bar',label:'Bar',groups:[
+  {t:'Bières',items:[
+   ['Goose Island IPA'+ic('goose'),'En fût','Verre 7,75 $ / Pinte 9,75 $'],['La Chipie'+ic('chipie'),'En fût / Archibald','Verre 7,75 $ / Pinte 9,75 $'],['La joufflue'+ic('jouf'),'En fût / Archibald','Verre 7,75 $ / Pinte 9,75 $'],['Stella Artois'+ic('stella'),'En fût','Verre 7,75 $ / Pinte 11 $'],['Bouteilles','Labatt Bleue, Budweiser, Beck\'s sans alcool, Bud Light, Alexander Keith\'s Blonde, Boréale, Michelob Ultra','6,50 $'],['Smirnoff Ice','','7,50 $'],['Corona','','8 $'],['Aux Fous Brassant'+ic('sbsl','fous'),'Selon l\'arrivage','9,50 $'],['L\'Octant'+ic('octant'),'Saisonnière','9,75 $']
+  ]},
+  {t:'Apéritifs et cocktails',items:[
+   ['Shoooooters!!!','Stinger, Fireball, curaçao bleu ou amaretto','3,50 $'],['Martini','Blanc ou rouge','6,50 $'],['St-Raphaël','Doré ou rouge','6,50 $'],['Val ambré à la sève d\'érable','Domaine ACER','7,50 $'],['Dry Martini','','8,50 $'],['Amaretto Sour','Amaretto, jus de citron, sucre','9 $'],['Sex on the beach','Vodka, schnapps à la pêche, limonade maison','9 $'],['Seabreeze','Vodka, jus d\'orange','9 $'],['Fuzzy Navel','Schnapps à la pêche, jus d\'orange','9 $'],['Gin St-Laurent','','9 $'],['Whisky 3 grains St-Laurent','','9 $'],['Rhum nordique','','9 $'],['Bloody César','Vodka, clamato, tabasco, Worcestershire','9,50 $'],['Sangria','Vin (rouge, blanc ou rosé), rhum, triple sec, jus de pomme et d\'orange, Sprite','9,50 $'],['Kir','Vin blanc, crème de cassis','9,50 $'],['Cosmopolitain','Vodka, triple sec, jus de canneberge','9,50 $'],['Zombie','Triple sec, rhum, limonade maison','9,50 $'],['Rainbow cocktail','Vodka, curaçao bleu, jus d\'orange, grenadine','9,50 $'],['Gin tonique','Gin, tonic, lime','10 $'],['Gin tonique aux framboises','','11 $'],['Mojito','','11 $'],['Long Island Ice Tea','Rhum, dry gin, vodka, triple sec, thé glacé','11 $']
+  ]},
+  {t:'Nos digestifs',items:[
+   ['Crème de menthe','','7 $'],['Grand Marnier','','7 $'],['Porto Charles-Aimé Robert','À la sève d\'érable','7 $']
+  ]}]},
+ {id:'boissons',label:'Boissons',groups:[
+  {t:'C\'est chaud!',items:[
+   ['Café régulier','','3,75 $'],['Thé, thé vert ou tisane','','3,75 $'],['Expresso court ou allongé','Régulier ou décaféiné','3,75 $'],['Expresso double','Régulier ou décaféiné','5 $'],['Cappuccino','','4,50 $'],['Café viennois','','5,50 $'],['Chocolat chaud, café moka ou café au lait','','4,75 $ / Tasse 6,50 $']
+  ]},
+  {t:'Nos coupe-soif',items:[
+   ['Boisson gazeuse','','4 $'],['Jus, lait, lait au chocolat','','4,50 $'],['Jus de légumes','','4,50 $'],['Eau minérale','Originale ou citron','5 $'],['Thé glacé','','4,50 $'],['Shirley Temple','','4,75 $'],['Kombucha Les chants du fleuve','','6 $'],['Mandarine','Un mélange rafraîchissant de jus de canneberge, d\'orange et de citron','5,75 $'],['Mocktail','Mojito, gin tonique et gin aux framboises','8,75 $'],['Virgin césar','','6,50 $']
+  ]}]}
+];
+
+/* ---------- Burger builder data ---------- */
+const B={
+ base:[['Végé',11.5],['Bœuf haché',14],['Poulet grillé',15.75],['Agneau haché',16.75]],
+ garn:[['Aucune',0,'laitue et tomate seulement'],['Sud-ouest',4.75,'Fromage cheddar, oignon et sauce au chipotle'],['Santa Fe',4.75,'Fromage cheddar, salsa, guacamole et luzerne'],['Sauté',4.75,'Fromage cheddar, oignon, champignons et piments forts'],['Chutney pommes à l\'érable',4.75,'Fromage brie'],['Forestier',4.75,'Fromage brie et champignons'],['Bombay',4.75,'Fromage de chèvre et mélange de légumes marinés grillés'],['La bruschetta',4.75,'Fromage de chèvre et garniture de bruschetta'],['Triplet',6,'Fromages suisse, cheddar et à la crème'],['Célèbre',7.75,'Fromage suisse et bacon'],['Aux p\'tits oignons',8.25,'Fromage Saint-Paulin des Basques et confit d\'oignon à l\'érable'],['Le Central',14.25,'Smoked meat, fromage cheddar et bacon']],
+ extra:[['Champignons sautés',2.25],['Oignons sautés',2.25],['Mélange sauté',3.5],['Mélange de légumes marinés grillés',3.5],['Bacon',4.5],['Fromage',4.5],['Fromage à poutine',5.5],['Sauce chipotle',.75],['Relish maison aux zucchinis',.75]],
+ patty:{'Végé':5,'Bœuf haché':7.75,'Poulet grillé':9.25,'Agneau haché':10.75},
+ side:[['Aucun',0],['Frites maison',8.5],['Rondelles d\'oignon',8.5],['Salade mesclun',8.75],['Salade César',8.75],['Poutine',14]]
+};
+const BI={'Végé':['vege'],'Agneau haché':['agneau','sbsl'],'Sauté':['piment'],"Aux p'tits oignons":['sbsl']};
+function chips(name,arr,type,checkedIdx){return arr.map((x,i)=>`<label class="chip"><input type="${type}" name="${name}" value="${i}" ${i===checkedIdx?'checked':''}><span>${x[0]}${BI[x[0]]?ic(...BI[x[0]]):''}${x[1]?`<small>${type==='radio'&&name==='base'?'':'+'}${fmt(x[1])}</small>`:''}</span></label>`).join('')}
+function builderHTML(){return `<div class="builder" id="builder">
+ <div>
+  <h3>Composez votre burger</h3><p class="sub">Choisissez la galette, la garniture et les extras pour voir le prix total. Tous les burgers sont servis avec laitue et tomate.</p>
+  <fieldset class="bstep"><legend>1. Le burger de base</legend><div class="chips">${chips('base',B.base,'radio',1)}</div></fieldset>
+  <fieldset class="bstep"><legend>2. La garniture</legend><div class="chips">${chips('garn',B.garn,'radio',9)}</div><p class="sub" id="garnDesc" style="margin:10px 0 0"></p></fieldset>
+  <fieldset class="bstep"><legend>3. Les extras</legend><div class="chips">${chips('extra',B.extra,'checkbox',-1)}<label class="chip"><input type="checkbox" name="patty"><span>Ajout 2<sup>e</sup> boulette<small id="pattyPrice"></small></span></label></div></fieldset>
+  <fieldset class="bstep" style="margin:0"><legend>4. L'accompagnement</legend><div class="chips">${chips('side',B.side,'radio',1)}</div></fieldset>
+ </div>
+ <div class="receipt" aria-live="polite"><h4>Votre burger</h4><ul id="rcpt"></ul><div class="total"><span>Total</span><span id="rtotal"></span></div><p class="fine">Prix du menu d'avril 2026.</p></div>
+</div>`}
+function calcBurger(){
+ const f=document.getElementById('builder');if(!f)return;
+ const val=n=>+f.querySelector(`input[name=${n}]:checked`).value;
+ const base=B.base[val('base')],g=B.garn[val('garn')],side=B.side[val('side')];
+ const lines=[[`Burger ${base[0].toLowerCase()}`,base[1]]];
+ if(g[1])lines.push([`Garniture ${g[0]}`,g[1]]);
+ f.querySelectorAll('input[name=extra]:checked').forEach(i=>lines.push([B.extra[+i.value][0],B.extra[+i.value][1]]));
+ const pp=B.patty[base[0]];f.querySelector('#pattyPrice').textContent='+'+fmt(pp);
+ if(f.querySelector('input[name=patty]').checked)lines.push(['Ajout 2e boulette',pp]);
+ if(side[1])lines.push([side[0],side[1]]);
+ $('#garnDesc').textContent=g[0]+' : '+g[2];
+ $('#rcpt').innerHTML=lines.map(l=>`<li><span>${l[0]}</span><span>${fmt(l[1])}</span></li>`).join('');
+ $('#rtotal').textContent=fmt(lines.reduce((a,l)=>a+l[1],0));
+}
+
+/* ---------- Menu render ---------- */
+let active='entrees';
+const tabsEl=$('#tabs'),out=$('#menuOut'),q=$('#q');
+MENU.forEach(s=>{const b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.textContent=s.label;b.dataset.id=s.id;b.addEventListener('click',()=>{q.value='';setTab(s.id)});tabsEl.appendChild(b)});
+const strip=s=>s.replace(/<[^>]+>/g,'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function hl(html,term){if(!term)return html;const re=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');return html.replace(/(<[^>]+>)|([^<]+)/g,(m,tag,txt)=>tag?tag:txt.replace(re,'<mark>$1</mark>'))}
+function itemsHTML(items,term){return `<div class="items">${items.map(i=>`<div class="item"><h4>${hl(i[0],term)}</h4><span class="lead" aria-hidden="true"></span><span class="price">${i[2]}</span>${i[1]?`<span class="desc">${hl(i[1],term)}</span>`:''}</div>`).join('')}</div>`}
+function groupHTML(g,items,term){
+ let h=`<div class="mgroup"><div class="mgroup-head"><h3>${g.t}</h3>${g.note?`<p>${g.note}</p>`:''}</div>`;
+ if(g.box)h+=`<div class="note-box">${g.box}</div>`;
+ if(g.table)h+=`<table class="sm"><thead><tr>${g.table.head.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${g.table.rows.map(r=>`<tr><td>${r[0]}</td><td class="p">${r[1]}</td><td class="p">${r[2]}</td></tr>`).join('')}</tbody></table>`;
+ if(items.length)h+=itemsHTML(items,term);
+ if(g.builder)h+=builderHTML();
+ return h+'</div>';
+}
+function setTab(id){
+ active=id;tabsEl.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.id===id));
+ const s=MENU.find(x=>x.id===id);out.innerHTML=s.groups.map(g=>groupHTML(g,g.items,'')).join('');
+ if(id==='burgers'){$('#builder').addEventListener('change',calcBurger);calcBurger()}
+}
+q.addEventListener('input',()=>{
+ const term=q.value.trim();if(!term){setTab(active);return}
+ const t=strip(term);let html='';
+ tabsEl.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',false));
+ MENU.forEach(s=>s.groups.forEach(g=>{const m=g.items.filter(i=>strip(i[0]+' '+i[1]).includes(t));if(m.length)html+=groupHTML({t:g.t+` <small>(${s.label})</small>`},m,term)}));
+ if('burger'.includes(t)||t.includes('burger')||B.garn.some(x=>strip(x[0]+' '+x[2]).includes(t)))html+=`<div class="mgroup"><div class="mgroup-head"><h3>Burgers</h3></div><p>Des garnitures correspondent à votre recherche. <a href="#menu" onclick="q.value='';setTab('burgers');return false">Ouvrir le compositeur de burger</a></p></div>`;
+ out.innerHTML=html||`<p class="empty">Rien ne correspond à « ${term.replace(/</g,'&lt;')} ». Essayez « poulet », « chèvre » ou « crevettes ».</p>`;
+});
+setTab('entrees');
+document.getElementById('legend').innerHTML=[['sbsl','Produits des membres des Saveurs du Bas-Saint-Laurent'],['agneau','Agneau du Bas-Saint-Laurent'],['piment','Plats relevés'],['vege','Plats végétaliens']].map(([k,t])=>`<span>${ic(k)} ${t}</span>`).join('');
+document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{q.value='';setTab(a.dataset.jump)}));
+
+/* ---------- Boutique ---------- */
+const PRODUCTS=[
+ ['Pâtes','Pâte alfredo aux produits de la mer',23,'images/boutique-pate-alfredo-aux-produits-de-la-mer.webp'],['Pâtes','Pâtes Alfredo poulet congelé',17.5,'images/boutique-pates-alfredo-poulet-congele.webp'],['Pâtes','Pâtes bacon champignons congelés',15.5,'images/boutique-pates-bacon-champignons-congeles.webp'],['Pâtes','Pâtes fines maison',3,'images/boutique-pates-fines-maison.webp'],
+ ['Pizza','Pizza américaine',16.5,'images/boutique-pizza-americaine.webp'],['Pizza','Pizza crevettes gingembre',18.75],['Pizza','Pizza jardinière',17.25],['Pizza','Pizza New Yorkaise',19.25]
+];
+const cart={};
+const pEl=$('#products');
+pEl.innerHTML=`<div class="product gift"><figure class="ph gift-img" data-alt="Certificat-cadeau du Central Café"><img src="images/certificat-cadeau-du-central-cafe.webp" alt="Certificat-cadeau du Central Café"></figure><div class="gift-body"><span class="cat">Chèque cadeau</span><h3>Offrez le Central Café en cadeau!</h3><p style="margin:0;color:#C9D3C5;font-size:15px">Montant désiré :</p><div class="amounts">${[10,20,50].map(a=>`<button type="button" data-gift="${a}">${a} $</button>`).join('')}</div></div></div>`+
+ PRODUCTS.map((p,i)=>`<div class="product${p[3]?'':' nophoto'}">${p[3]?`<figure class="ph prod-img" data-alt="${p[1]}"><img src="${p[3]}" alt="${p[1]}" loading="lazy"></figure>`:''}<span class="cat">${p[0]}</span><h3>${p[1]}</h3><div class="row"><span class="pp">${fmt(p[2])}</span><div class="qty"><button type="button" data-i="${i}" data-d="-1" aria-label="Retirer ${p[1]}">−</button><output id="q${i}">0</output><button type="button" data-i="${i}" data-d="1" aria-label="Ajouter ${p[1]}">+</button></div></div></div>`).join('');
+pEl.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.gift){const k='Chèque cadeau '+b.dataset.gift+' $';cart[k]=cart[k]||{p:+b.dataset.gift,n:0};cart[k].n++;toast(k+' ajouté')}
+ else{const p=PRODUCTS[+b.dataset.i],k=p[1];cart[k]=cart[k]||{p:p[2],n:0,i:+b.dataset.i};cart[k].n=Math.max(0,cart[k].n+ +b.dataset.d);if(!cart[k].n)delete cart[k]}
+ renderCart();
+});
+function renderCart(){
+ PRODUCTS.forEach((p,i)=>{$('#q'+i).textContent=cart[p[1]]?cart[p[1]].n:0});
+ const ks=Object.keys(cart);
+ $('#cartList').innerHTML=ks.length?ks.map(k=>`<li><span>${cart[k].n} × ${k}</span><span>${fmt(cart[k].n*cart[k].p)}<button type="button" data-rm="${k}" aria-label="Retirer ${k}">✕</button></span></li>`).join(''):'<li style="color:var(--ink-2);justify-content:flex-start">Votre panier est vide.</li>';
+ $('#cartTotal').textContent=fmt(ks.reduce((a,k)=>a+cart[k].n*cart[k].p,0));
+}
+$('#cartList').addEventListener('click',e=>{const k=e.target.dataset.rm;if(k){delete cart[k];renderCart()}});
+// date de ramassage : min. 2 jours, mardi au samedi
+const pk=$('#pickup');const d0=new Date();d0.setDate(d0.getDate()+2);pk.min=d0.toISOString().slice(0,10);
+pk.addEventListener('change',()=>{const d=new Date(pk.value+'T12:00');if([0,1].includes(d.getDay())){pk.setCustomValidity('Les commandes sont préparées du mardi au samedi.');pk.reportValidity()}else pk.setCustomValidity('')});
+$('#shopForm').addEventListener('submit',e=>{
+ e.preventDefault();const ks=Object.keys(cart);if(!ks.length){toast('Ajoutez au moins un article');return}
+ const f=new FormData(e.target);
+ const body=`Bonjour,\n\nJe souhaite commander pour emporter :\n\n${ks.map(k=>`- ${cart[k].n} × ${k} (${fmt(cart[k].n*cart[k].p)})`).join('\n')}\n\nTotal : ${$('#cartTotal').textContent}\nDate de cueillette souhaitée : ${f.get('date')}\n\nNom : ${f.get('nom')}\nTéléphone : ${f.get('tel')}\n\nJe paierai à la cueillette. Merci !`;
+ location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Commande Boutique Signature : '+f.get('nom'))}&body=${encodeURIComponent(body)}`;
+});
+
+/* ---------- Active nav on scroll ---------- */
+const navA=[...document.querySelectorAll('.nav-links a')];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+['menu','maison','ambiance','groupes','boutique','contact'].forEach(id=>io.observe(document.getElementById(id)));
+
+/* ---------- Photos : repli si une image ne charge pas, visionneuse ---------- */
+document.querySelectorAll('.ph img').forEach(img=>{
+ const f=()=>{ if(img.dataset.fb&&!img.dataset.used){img.dataset.used=1;img.src=img.dataset.fb;const fig=img.closest('[data-full]');if(fig)fig.dataset.full=img.dataset.fb;return}
+   img.closest('.ph').classList.add('noimg')};
+ img.addEventListener('error',f);if(img.complete&&!img.naturalWidth&&img.src)f()});
+const lb=document.createElement('dialog');lb.className='lb';lb.innerHTML='<button type="button" aria-label="Fermer">✕</button><img alt=""><p></p>';document.body.appendChild(lb);
+lb.querySelector('button').onclick=()=>lb.close();lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+document.querySelectorAll('.gallery figure').forEach(f=>{f.tabIndex=0;f.setAttribute('role','button');const open=()=>{lb.querySelector('img').src=f.dataset.full;lb.querySelector('img').alt=f.dataset.alt;lb.querySelector('p').textContent=f.dataset.alt;lb.showModal()};f.addEventListener('click',open);f.addEventListener('keydown',e=>{if(e.key==='Enter')open()})});
+
+/* ---------- Les cabanes : un balancement au chargement, puis au survol ou au toucher ---------- */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.nich').forEach((n,i)=>{
+    const go=(a)=>{if(reduce)return;n.style.setProperty('--a',a+'deg');n.classList.remove('swing');void n.offsetWidth;n.classList.add('swing')};
+    setTimeout(()=>go(i%2?-14:12),150+i*120);
+    n.addEventListener('mouseenter',e=>go(e.offsetX<n.offsetWidth/2?-10:10));
+    n.addEventListener('touchstart',()=>go(12),{passive:true});
+  });
+})();
+</script>
+</body>
+</html>
