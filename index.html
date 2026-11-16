@@ -366,11 +366,11 @@ dialog.lb button{position:fixed;top:18px;right:22px;background:#fff;color:var(--
 .demo-banner{background:var(--cobalt);color:#F3F0E6;font-size:14px;font-style:italic;text-align:center;padding:8px 16px}
 .demo-banner a{color:var(--ochre)}
 .gwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start}
-.gphoto{position:sticky;top:24px;margin:0}
+.gphoto{margin:0}
 .gphoto .ph{aspect-ratio:3/4;border:8px solid #F3F0E6}
 .gphoto figcaption{font-size:14px;font-style:italic;opacity:.8;margin-top:8px}
 .gwrap .items{column-gap:48px}
-@media (max-width:1000px){.gwrap{grid-template-columns:minmax(0,1fr)}.gphoto{position:static;max-width:420px;order:-1}.gphoto .ph{aspect-ratio:4/3}}
+@media (max-width:1000px){.gwrap{grid-template-columns:minmax(0,1fr)}.gcol{position:static;grid-template-columns:1fr 1fr;order:-1}.gphoto{max-width:420px}.gphoto .ph{aspect-ratio:4/3}}
 .groupes .intro{align-items:start;margin-bottom:64px}
 .groupes .intro>div{max-width:34em}
 .salles{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 30px}
@@ -381,6 +381,8 @@ dialog.lb button{position:fixed;top:18px;right:22px;background:#fff;color:var(--
 .salle figcaption{font-size:14.5px;font-style:italic;opacity:.85;margin-top:12px}
 @media (max-width:900px){.salles{grid-template-columns:1fr 1fr;gap:28px 18px}.salle:nth-child(3n+2){margin-top:0}.salle .ph{border-width:7px}}
 @media (max-width:560px){.salles{grid-template-columns:1fr}}
+.gcol{display:grid;gap:36px;position:sticky;top:24px}
+.gwrap.multi .gcol{position:static}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -672,7 +674,7 @@ const S='<span class="star">*</span>';
 const MENU=[
  {id:'entrees',label:'Entrées & table d\'hôte',groups:[
   {t:'Table d\'hôte',box:`<b>Transformez votre plat principal en table d'hôte</b> en y ajoutant une entrée, un dessert ou thé, café ou tisane. À partir de 16,50 $ de plus. Choix d'entrées indiquées par un ${S} : 2 $, 3 $ ou 5 $ de plus. Ne peut être jumelé à aucune promotion.`,items:[]},
-  {t:'Nos entrées',img:['images/bol-de-frites-maison.webp','Un bol de frites maison assaisonnées au parmesan'],items:[
+  {t:'Nos entrées',img:[['images/bol-de-frites-maison.webp','Un bol de frites maison assaisonnées au parmesan'],['images/mini-nachos-classiques.webp','Les mini nachos classiques et leur salsa']],items:[
    ['Les petits pogos','Deux petits pogos faits maison accompagnés de moutarde au miel et de verdure','Simple 8 $ / Double (à partager) 15,75 $'],
    ['Rondelles d\'oignon','','8,75 $'],
    ['Bol de frites maison','Avec choix de mayonnaise maison (originale, sriracha ou pesto)','8,75 $'],
@@ -741,7 +743,7 @@ const MENU=[
  {id:'smoked',label:'Smoked meat',groups:[
   {t:'Sandwichs de smoked meat',note:'Avec pain de seigle et choix de moutarde : ancienne (Meaux), Dijon ou régulière. Accompagnements : frites maison 8,50 $, rondelles d\'oignon 8,50 $, salade mesclun 8,75 $, salade César 8,75 $, poutine 14 $.',table:{head:['Format','Sandwich de smoked meat','De luxe / relish aux zucchinis et fromage suisse'],rows:[['3 oz (petit)','10,50 $','13,75 $'],['5 oz (régulier)','15 $','18 $'],['7 oz (jumbo)','20,45 $','23,40 $']]},items:[]}]},
  {id:'desserts',label:'Desserts',groups:[
-  {t:'Nos desserts',items:[
+  {t:'Nos desserts',img:['images/creme-brulee-flambee.webp','La crème brûlée à la vanille, caramélisée au chalumeau'],items:[
    ['Gâteau aux carottes','','7 $'],['Fondant au chocolat','Accompagné de crème glacée','7,50 $'],['Tarte au sucre','En l\'honneur du bon vieux temps. Extra crème glacée 2,50 $','7,50 $'],['Gâteau au chocolat « Central Café »','Génoise et glaçage au chocolat','7,75 $'],['Crème brûlée à la vanille','Un classique à redécouvrir','8,25 $'],['Le Royal','Croquant aux amandes et aux noisettes avec riche mousse de chocolat noir, caramel et ganache au chocolat','8,25 $'],['Pouding aux pommes','Sauce au rhum','Demi 5 $ / Complet 8,50 $'],['Gâteau fromage style New York','L\'onctuosité d\'un vrai gâteau au fromage avec coulis aux framboises ou au caramel à la fleur de sel','9 $']
   ]},
   {t:'Cafés spéciaux',items:[
@@ -810,8 +812,9 @@ const strip=s=>s.replace(/<[^>]+>/g,'').normalize('NFD').replace(/[̀-ͯ]/g,'').
 function hl(html,term){if(!term)return html;const re=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');return html.replace(/(<[^>]+>)|([^<]+)/g,(m,tag,txt)=>tag?tag:txt.replace(re,'<mark>$1</mark>'))}
 function itemsHTML(items,term){return `<div class="items">${items.map(i=>`<div class="item"><h4>${hl(i[0],term)}</h4><span class="lead" aria-hidden="true"></span><span class="price">${i[2]}</span>${i[1]?`<span class="desc">${hl(i[1],term)}</span>`:''}</div>`).join('')}</div>`}
 function groupHTML(g,items,term){
- const fig=g.img?`<figure class="gphoto"><div class="ph"><img src="${g.img[0]}" alt="${g.img[1]}" loading="lazy"></div><figcaption>${g.img[1]}</figcaption></figure>`:'';
- const wrap=b=>fig&&!term?`<div class="gwrap">${b}${fig}</div>`:b;
+ const pics=g.img?(Array.isArray(g.img[0])?g.img:[g.img]):[];
+ const fig=pics.map(p=>`<figure class="gphoto"><div class="ph"><img src="${p[0]}" alt="${p[1]}" loading="lazy"></div><figcaption>${p[1]}</figcaption></figure>`).join('');
+ const wrap=b=>fig&&!term?`<div class="gwrap${pics.length>1?' multi':''}">${b}<div class="gcol">${fig}</div></div>`:b;
  const box=g.box?`<div class="note-box">${g.box}</div>`:'';
  let h=`<div class="mgroup"><div class="mgroup-head"><h3>${g.t}</h3>${g.note?`<p>${g.note}</p>`:''}</div>`;
  if(g.table)h+=box+`<table class="sm"><thead><tr>${g.table.head.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${g.table.rows.map(r=>`<tr><td>${r[0]}</td><td class="p">${r[1]}</td><td class="p">${r[2]}</td></tr>`).join('')}</tbody></table>`;
