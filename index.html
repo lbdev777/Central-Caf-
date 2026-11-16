@@ -371,6 +371,16 @@ dialog.lb button{position:fixed;top:18px;right:22px;background:#fff;color:var(--
 .gphoto figcaption{font-size:14px;font-style:italic;opacity:.8;margin-top:8px}
 .gwrap .items{column-gap:48px}
 @media (max-width:1000px){.gwrap{grid-template-columns:minmax(0,1fr)}.gphoto{position:static;max-width:420px;order:-1}.gphoto .ph{aspect-ratio:4/3}}
+.groupes .intro{align-items:start;margin-bottom:64px}
+.groupes .intro>div{max-width:34em}
+.salles{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 30px}
+.salle{cursor:zoom-in;margin:0}
+.salle:nth-child(3n+2){margin-top:52px}
+.salle .ph{aspect-ratio:4/3;border:10px solid var(--paper);box-shadow:0 2px 0 rgba(31,44,102,.15)}
+.salle:hover .ph{border-color:#fff;box-shadow:0 0 0 2px var(--red),0 2px 0 rgba(31,44,102,.15)}
+.salle figcaption{font-size:14.5px;font-style:italic;opacity:.85;margin-top:12px}
+@media (max-width:900px){.salles{grid-template-columns:1fr 1fr;gap:28px 18px}.salle:nth-child(3n+2){margin-top:0}.salle .ph{border-width:7px}}
+@media (max-width:560px){.salles{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -515,15 +525,24 @@ dialog.lb button{position:fixed;top:18px;right:22px;background:#fff;color:var(--
 </section>
 
 <section class="groupes" id="groupes">
-  <div class="wrap groups">
-    <figure class="ph" data-alt="Salle privée du Central Café"><img src="images/une-salle-privee-du-central-cafe.webp" alt="Une salle privée du Central Café" loading="lazy"></figure>
-    <div>
+  <div class="wrap">
+    <div class="intro">
       <h2>Salles privées</h2>
-      <p>Le lieu tout désigné pour tous vos rendez-vous : tête-à-tête en amoureux, lunchs entre collègues de travail, réunions d'affaires, soupers en famille, fêtes d'anniversaire ou célébrations entre amis.</p>
-      <div class="rooms" aria-label="Capacité des trois salles privées">
-        <div><b>12</b>personnes</div><div><b>20</b>personnes</div><div><b>30</b>personnes</div>
+      <div>
+        <p>Le lieu tout désigné pour tous vos rendez-vous : tête-à-tête en amoureux, lunchs entre collègues de travail, réunions d'affaires, soupers en famille, fêtes d'anniversaire ou célébrations entre amis.</p>
+        <div class="rooms" aria-label="Capacité des trois salles privées">
+          <div><b>12</b>personnes</div><div><b>20</b>personnes</div><div><b>30</b>personnes</div>
+        </div>
+        <a class="tel-big" href="tel:+14187224011"><small>Réservations des salles, par téléphone</small><b>418 722-4011</b></a>
       </div>
-      <a class="tel-big" href="tel:+14187224011"><small>Réservations des salles, par téléphone</small><b>418 722-4011</b></a>
+    </div>
+    <div class="salles gallery">
+      <figure class="salle" data-alt="La salle au mur de brique, près du bar" data-full="images/salle-mur-de-brique.webp"><div class="ph"><img src="images/salle-mur-de-brique.webp" alt="La salle au mur de brique, près du bar" loading="lazy"></div><figcaption>La salle au mur de brique, près du bar</figcaption></figure>
+      <figure class="salle" data-alt="La véranda et ses cabanes au plafond" data-full="images/salle-veranda-cabanes.webp"><div class="ph"><img src="images/salle-veranda-cabanes.webp" alt="La véranda et ses cabanes au plafond" loading="lazy"></div><figcaption>La véranda et ses cabanes au plafond</figcaption></figure>
+      <figure class="salle" data-alt="La salle au plancher de bois d’origine" data-full="images/salle-plancher-de-bois.webp"><div class="ph"><img src="images/salle-plancher-de-bois.webp" alt="La salle au plancher de bois d’origine" loading="lazy"></div><figcaption>La salle au plancher de bois d’origine</figcaption></figure>
+      <figure class="salle" data-alt="La salle au plafond de nuages" data-full="images/salle-plafond-de-nuages.webp"><div class="ph"><img src="images/salle-plafond-de-nuages.webp" alt="La salle au plafond de nuages" loading="lazy"></div><figcaption>La salle au plafond de nuages</figcaption></figure>
+      <figure class="salle" data-alt="L’étage, sous les vignes et le lustre" data-full="images/salle-a-l-etage-lustre.webp"><div class="ph"><img src="images/salle-a-l-etage-lustre.webp" alt="L’étage, sous les vignes et le lustre" loading="lazy"></div><figcaption>L’étage, sous les vignes et le lustre</figcaption></figure>
+      <figure class="salle" data-alt="L’étage et ses gravures d’oiseaux" data-full="images/salle-a-l-etage-gravures.webp"><div class="ph"><img src="images/salle-a-l-etage-gravures.webp" alt="L’étage et ses gravures d’oiseaux" loading="lazy"></div><figcaption>L’étage et ses gravures d’oiseaux</figcaption></figure>
     </div>
   </div>
 </section>
