@@ -691,7 +691,7 @@ const MENU=[
    ['Salade de pomme, noix de Grenoble glacées et bleu','Mesclun, luzerne, pommes et noix de Grenoble glacées, vinaigrette à l\'érable','Demi 17,60 $ / Grande 29 $'],
    ['Salade calda tiède au fromage de chèvre','Mesclun, noix de Grenoble glacées, bacon (lardon), mandarines, luzerne, vinaigrette framboises balsamique','Demi 17,60 $ / Grande 29 $']
   ]},
-  {t:'Poutines',items:[
+  {t:'Poutines',img:['images/poutine-tao.webp','La poutine Tao, version poulet'],items:[
    ['Poutine régulière','','18,65 $'],
    ['Poutine Central','Poivrons, oignon, bacon et smoked meat','24,85 $'],
    ['Poutine Tao','Sauce maison régulière, Tao et thaï, version poulet ou crevettes tempura, échalotes et graines de sésame','26,90 $']
@@ -751,6 +751,7 @@ const MENU=[
   {t:'Bières',items:[
    ['Goose Island IPA'+ic('goose'),'En fût','Verre 7,75 $ / Pinte 9,75 $'],['La Chipie'+ic('chipie'),'En fût / Archibald','Verre 7,75 $ / Pinte 9,75 $'],['La joufflue'+ic('jouf'),'En fût / Archibald','Verre 7,75 $ / Pinte 9,75 $'],['Stella Artois'+ic('stella'),'En fût','Verre 7,75 $ / Pinte 11 $'],['Bouteilles','Labatt Bleue, Budweiser, Beck\'s sans alcool, Bud Light, Alexander Keith\'s Blonde, Boréale, Michelob Ultra','6,50 $'],['Smirnoff Ice','','7,50 $'],['Corona','','8 $'],['Aux Fous Brassant'+ic('sbsl','fous'),'Selon l\'arrivage','9,50 $'],['L\'Octant'+ic('octant'),'Saisonnière','9,75 $']
   ]},
+  {t:'Nos cidres',note:"De la Cidrerie de l'Estran, à Trois-Pistoles.",img:['images/cidres-de-l-estran.webp','Les cidres de la Cidrerie de l\'Estran'],box:"<b>La Baie Lumineuse</b> — cidre sec et pétillant aux baies sauvages. 5,5 % alc./vol., 355 ml.<br>"+"<b>Cidre de plage</b> — cidre pétillant et sec. 7 % alc./vol., 250 ml.<br>"+"Des pichets de sangria sont aussi offerts. Informez-vous des prix auprès de votre serveur.",items:[]},
   {t:'Apéritifs et cocktails',img:['images/sangria-sur-la-terrasse.webp','Un pichet de sangria sur la terrasse'],items:[
    ['Shoooooters!!!','Stinger, Fireball, curaçao bleu ou amaretto','3,50 $'],['Martini','Blanc ou rouge','6,50 $'],['St-Raphaël','Doré ou rouge','6,50 $'],['Val ambré à la sève d\'érable','Domaine ACER','7,50 $'],['Dry Martini','','8,50 $'],['Amaretto Sour','Amaretto, jus de citron, sucre','9 $'],['Sex on the beach','Vodka, schnapps à la pêche, limonade maison','9 $'],['Seabreeze','Vodka, jus d\'orange','9 $'],['Fuzzy Navel','Schnapps à la pêche, jus d\'orange','9 $'],['Gin St-Laurent','','9 $'],['Whisky 3 grains St-Laurent','','9 $'],['Rhum nordique','','9 $'],['Bloody César','Vodka, clamato, tabasco, Worcestershire','9,50 $'],['Sangria','Vin (rouge, blanc ou rosé), rhum, triple sec, jus de pomme et d\'orange, Sprite','9,50 $'],['Kir','Vin blanc, crème de cassis','9,50 $'],['Cosmopolitain','Vodka, triple sec, jus de canneberge','9,50 $'],['Zombie','Triple sec, rhum, limonade maison','9,50 $'],['Rainbow cocktail','Vodka, curaçao bleu, jus d\'orange, grenadine','9,50 $'],['Gin tonique','Gin, tonic, lime','10 $'],['Gin tonique aux framboises','','11 $'],['Mojito','','11 $'],['Long Island Ice Tea','Rhum, dry gin, vodka, triple sec, thé glacé','11 $']
   ]},
@@ -809,10 +810,13 @@ const strip=s=>s.replace(/<[^>]+>/g,'').normalize('NFD').replace(/[̀-ͯ]/g,'').
 function hl(html,term){if(!term)return html;const re=new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');return html.replace(/(<[^>]+>)|([^<]+)/g,(m,tag,txt)=>tag?tag:txt.replace(re,'<mark>$1</mark>'))}
 function itemsHTML(items,term){return `<div class="items">${items.map(i=>`<div class="item"><h4>${hl(i[0],term)}</h4><span class="lead" aria-hidden="true"></span><span class="price">${i[2]}</span>${i[1]?`<span class="desc">${hl(i[1],term)}</span>`:''}</div>`).join('')}</div>`}
 function groupHTML(g,items,term){
+ const fig=g.img?`<figure class="gphoto"><div class="ph"><img src="${g.img[0]}" alt="${g.img[1]}" loading="lazy"></div><figcaption>${g.img[1]}</figcaption></figure>`:'';
+ const wrap=b=>fig&&!term?`<div class="gwrap">${b}${fig}</div>`:b;
+ const box=g.box?`<div class="note-box">${g.box}</div>`:'';
  let h=`<div class="mgroup"><div class="mgroup-head"><h3>${g.t}</h3>${g.note?`<p>${g.note}</p>`:''}</div>`;
- if(g.box)h+=`<div class="note-box">${g.box}</div>`;
- if(g.table)h+=`<table class="sm"><thead><tr>${g.table.head.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${g.table.rows.map(r=>`<tr><td>${r[0]}</td><td class="p">${r[1]}</td><td class="p">${r[2]}</td></tr>`).join('')}</tbody></table>`;
- if(items.length){const ih=itemsHTML(items,term);h+=g.img&&!term?`<div class="gwrap">${ih}<figure class="gphoto"><div class="ph"><img src="${g.img[0]}" alt="${g.img[1]}" loading="lazy"></div><figcaption>${g.img[1]}</figcaption></figure></div>`:ih}
+ if(g.table)h+=box+`<table class="sm"><thead><tr>${g.table.head.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${g.table.rows.map(r=>`<tr><td>${r[0]}</td><td class="p">${r[1]}</td><td class="p">${r[2]}</td></tr>`).join('')}</tbody></table>`;
+ else if(items.length)h+=box+wrap(itemsHTML(items,term));
+ else h+=wrap(box);
  if(g.builder)h+=builderHTML();
  return h+'</div>';
 }
